@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="login.css">
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+
+      // In a real app, you would verify credentials here
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Basic dummy check (you can customize or replace with real validation)
+      if (username && password) {
+        alert("Login successful!");
+        localStorage.setItem("loggedInUser", username); // Save for dashboard use
+        window.location.href = "dashboardlogin.html";
+      } else {
+        alert("Invalid credentials");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Your Account</h2>
+    <form onsubmit="handleLogin(event)" class="login-form">
+      <label for="username">Username or Email:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit" class="submit-btn">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="page.html">Sign up here</a></p>
+    <p><a href="page.html">Forgot your password?</a></p>
+  </div>
+</body>
+</html>
